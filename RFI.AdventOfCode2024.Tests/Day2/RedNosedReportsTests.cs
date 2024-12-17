@@ -8,7 +8,7 @@ public class RedNosedReportsTests
 {
     [Theory]
     [MemberData(nameof(Reports))]
-    public void GetSafeReportsCount_TrainingInput(string jsonReports, int expectedCount)
+    public void GetSafeReportsCount__TestCalculation(string jsonReports, int expectedCount)
     {
         var reports = JsonSerializer.Deserialize<List<List<int>>>(jsonReports);
 
@@ -17,6 +17,8 @@ public class RedNosedReportsTests
 
         result.Should().Be(expectedCount);
     }
+
+    #region Test data
 
     public static IEnumerable<object[]> Reports
     {
@@ -1049,4 +1051,6 @@ public class RedNosedReportsTests
             };
         }
     }
+
+    #endregion
 }
